@@ -7,21 +7,21 @@ router.get("/", (ctx: Context) => {
   ctx.response.body = "Hello world!";
 });
 
-const reverse = (frase: string) => {
-  return frase.split(" ").reverse().join(" ");
+const reverse = (phrase: string) => {
+  return phrase.split(" ").reverse().join(" ");
 };
 
 router.get("/tufrase", (ctx: Context) => {
   const queryParams = ctx.request.url.searchParams;
-  const frase = queryParams.get("frase");
-  const nuevaFrase = reverse(frase);
+  const phrase = queryParams.get("phrase");
+  const newPrhase = reverse(phrase);
   ctx.response.status = 200;
   ctx.response.body = `
     <!DOCTYPE html>
     <html>
       <head><title>Frase al reves</title><head>
       <body>
-        <h1 style="color: blue; text-align: center;">${nuevaFrase}</h1>
+        <h1 style="color: blue; text-align: center;">${newPrhase}</h1>
       </body>
     </html>
     `;
